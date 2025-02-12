@@ -101,11 +101,13 @@ void searchItem() {
 
     for (i = 0; i < count; i++) {
         if (inventory[i].id == id) {
-            printf("\n***************************************\n");
-            printf("*            \e[0;33mITEM FOUND!\033[0m              *\n");
-            printf("***************************************\n");
-            printf("ID : %d  \nNAME : %s  \nQUANTITY : %d  \nPRICE : %.2f  \n",inventory[i].id,inventory[i].name, inventory[i].quantity, inventory[i].price);
-            printf("***************************************\n");
+            printf("\n**********************************************************************\n");
+            printf("*                          \e[0;33mITEM FOUND!\033[0m                            *\n");
+            printf("**********************************************************************\n");
+            printf("* %-10s | %-25s | %-10s | %-10s *\n", "ID", "NAME", "QUANTITY", "PRICE");
+            printf("*------------+---------------------------+------------+------------*\n");
+            printf("* %-10d | %-25s | %-10d | %-10.2f *\n", inventory[i].id, inventory[i].name, inventory[i].quantity, inventory[i].price);
+            printf("**********************************************************************\n");
             return;
         }
     }
@@ -172,8 +174,7 @@ void displayInventory() {
     printf("-------------------------------------------------------------------------------------\n");
 
     for (i = 0; i < count; i++) {
-        printf("%-10d %-25s %-15d %-15.2f\n",
-               inventory[i].id, inventory[i].name, inventory[i].quantity, inventory[i].price);
+        printf("%-10d %-25s %-15d %-15.2f\n",inventory[i].id, inventory[i].name, inventory[i].quantity, inventory[i].price);
     }
 
     printf("-------------------------------------------------------------------------------------\n");
@@ -193,6 +194,7 @@ void main() {
         printf("| 5. Display Inventory                  |\n");
         printf("| 6. Exit                               |\n");
         printf("=========================================\n");
+        
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -220,5 +222,4 @@ void main() {
         }
     }
 }
-
 
